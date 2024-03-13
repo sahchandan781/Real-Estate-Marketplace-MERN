@@ -188,7 +188,7 @@ export default function UpdateListing() {
             value={formData.name}
           />
           <textarea
-            type='text'
+            type='text' 
             placeholder='Description'
             className='border p-3 rounded-lg'
             id='description'
