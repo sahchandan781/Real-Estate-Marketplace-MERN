@@ -207,7 +207,7 @@ export default function CreateListing() {
                     </div>
                     <div className=" flex items-center gap-2">
                         <input className="p-3 border border-gray-300" type="number" 
-                        id="regularPrice" min={50} max={1000000} required
+                        id="regularPrice" min={50} max={1000000000} required
                         onChange={handleChange} value={formData.regularPrice}
                         />
                         <div className="flex flex-col items-center">
