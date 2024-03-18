@@ -192,7 +192,7 @@ export default function Search() {
             defaultValue={'created_at_desc'}
             id='sort_order' className='border rounded-lg p-3'>
               <option value='regularPrice_desc'>Price high to low</option>
-              <option value='regularPrice_asc'>Price low to hight</option>
+              <option value='regularPrice_asc'>Price low to high</option>
               <option value='createdAt_desc'>Latest</option>
               <option value='createdAt_asc'>Oldest</option>
             </select>
