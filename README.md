@@ -44,7 +44,7 @@ https://staybnb-estate.onrender.com/
 
 To use the NextGen Real State Marketplace application, follow these steps:
 
-1. Visit the live demo [here](https://example.com).
+1. Visit the live demo [here](https://staybnb-estate.onrender.com/).
 2. Sign up for an account or log in if you already have one.
 3. Browse through the available property listings or use the search filters to find properties that meet your criteria.
 4. Click on a property to view detailed information and contact the seller or agent for more details.
