@@ -10,6 +10,7 @@ import CreateListing from './pages/CreateListing';
 import UpdateListing from './pages/UpdateListing';
 import Listing from './pages/Listing';
 import Search from './pages/Search';
+import Chat from './components/Chat';
 
 
 
@@ -19,6 +20,7 @@ export default function App() {
     <BrowserRouter>
       
       <Header />
+      <Chat />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path="/sign-in" element={<SignIn />} />
