@@ -9,3 +9,19 @@ export const createReview = async(req, res, next) =>{
         next(error);
     }
 };
+
+
+export const getListingReview = async(req, res, next) => {
+    try {
+        const reviews = await Review.find({listingId: req.params.listingId })
+        .sort({
+            createdAt: -1,
+        });
+
+        res.status(200).json(reviews);
+
+    } catch (error) {
+        next(error);
+    }
+
+}

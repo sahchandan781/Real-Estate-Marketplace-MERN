@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { Review } from './Review';
 
 function ReviewSection({listingId}) {
     const {currentUser} = useSelector(state => state.user);
     const [ review, setReview ] = useState('');
     const [ rating, setRating ] = useState('');
+    const [ reviews, setReviews ] = useState([]);
 
     const handleSubmit = async(e) => {
         e.preventDefault();
@@ -25,11 +27,29 @@ function ReviewSection({listingId}) {
             if(res.ok) {
                 setRating('');
                 setReview('');  
+                setReviews([data, ...reviews]);
             }
         } catch (error) {
             console.log(error);
         }
     }
+
+    useEffect(() => {
+        const getReviews = async () => {
+            try {
+               const res = await fetch(`/api/review/getListingReview/${listingId}`);
+               if ( res.ok ) {
+                const data = await res.json();
+                setReviews(data);
+               }
+            } catch (error) {
+                console.log(error.message);
+            }
+        }
+        getReviews();
+    }, [listingId])
+    console.log(reviews);
+    
   return (
     <div className='max-w-2xl mx-auto w-full p-3'>
         {currentUser ?
@@ -71,6 +91,26 @@ function ReviewSection({listingId}) {
                     
 
                 </form>
+            )
+        }
+
+        {
+            reviews.length === 0 ? (
+                <p className='text-sm my-5'>No reviews yet!</p>
+            ) : (
+                <>
+                <div className="text-sm my-5 flex items-center gap-1">
+                    <p className='text-slate-800 font-semibold'>Reviews</p>
+                    <div className="border border-gray-500 py-1 px-2 rounded-sm">
+                        <p>{reviews.length}</p>
+                    </div>
+                </div>
+                {
+                    reviews.map(revi => (
+                        <Review key={revi._id}  revi={revi}/>
+                    ))
+                }
+                </>
             )
         }
     </div>

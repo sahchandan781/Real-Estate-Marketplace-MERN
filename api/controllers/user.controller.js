@@ -70,3 +70,13 @@ export const getUser = async (req, res, next) =>{
      next(error);
    }
 };
+
+// controller below is for comment section
+// export const getUsers = async (req, res, next) => {
+//     try {
+//        const user = await User.findById(req.params.id);
+
+//     } catch (error) {
+//         next(error);
+//     }
+// }
